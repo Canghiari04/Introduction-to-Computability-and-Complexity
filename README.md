@@ -1,2 +1,1 @@
-# Introduction-to-Computability-and-Complexity
-Collection of notes Introduction to Computability and Complexity 2025/2026
+Collection of notes for the teaching Introduction to Computability and Complexity (B5026) of the Degree Course Artificial Intelligence
