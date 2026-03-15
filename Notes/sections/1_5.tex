@@ -1,0 +1,52 @@
+Summing up, we have stated:
+\begin{enumerate}
+    \item A function is not a mapping operation, it is basically a relation between pairs composed by values coming from a domain and a codomain.
+    \item Any function is usually described by: $$f: A \rightarrow B$$ where:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item $A \rightarrow$ domain
+        \item $B \rightarrow$ codomain
+    \end{itemize}
+    \item Sometimes $A$ and $B$ are countable not-string sets, therefore we must encode them following some strategies.
+    \item The encoding of any element $x$ is indicated as $\lfloor x \rfloor$.
+\end{enumerate}
+
+Typically, tasks (\textit{what we want to achieve}) are about: given a function (\textit{relation between two sets}) we turn an input to an output. In some cases,
+the input and output are not strings, so we need a way to represent them as a sequence of characters, following some encoding approaches.
+\begin{example}
+    e.g. Let's consider the following alphabet.
+    $$S = \{a, b, c\}$$
+    any single character of this alphabet can be encoded as:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{}
+        \item $a \rightarrow 00$
+        \item $b \rightarrow 01$
+        \item $c \rightarrow 10$
+    \end{itemize}
+
+    For instance, the original string $abbc$ becomes:
+    $$00010110$$
+
+    Note: we get an injective function but not a surjective function, since $11$ from the codomain corresponds to nothing in the domain.
+\end{example}
+\begin{definition}
+    Given any natural number $n$, we get an encoding equal to transform it in a binary number:
+    $$12 \rightarrow 1100$$
+\end{definition}
+\begin{definition}
+    Given pairs of binary strings:
+    $$\{0,1\}^* \times \{0,1\}^*$$
+    where both $\{0,1\}^*$ can be a whatever sequence of binary numbers, we encode the resulting string $x \# y$ over the alphabet $\{0,1,\#\}$, where $\#$ acts as 
+    \textbf{separator}.
+\end{definition}
+In computational theory, a task is interisting if it consists in computing a function from the alphabet $\{0,1\}^*$ to itself. An important function that starts
+from $\{0,1\}^*$ and goes to $\{0,1\}^*$ are those whose range are strings of length exactly one, named \textbf{boolean functions}, also called \textbf{characteristic functions}.
+\begin{definition}
+    We identify the characteristic function such a function $f$ with a subset $L_f$ of $\{0,1\}^*$, defined as follows:
+    $$L_f = \{x \in \{0,1\}^*|f(x) = 1\}$$
+\end{definition}
+\begin{definition}
+    Any subset of $S^*$ (\textit{the set of any string of any dimension $n$}) is called \textbf{language}, indicated as $M$.
+\end{definition}
+These last definitions are extremely useful, because we can design a \textbf{decision problem} for a given language $M$ (\textit{subset of the alphabet $\{0,1\}^*$})
+as task of computing a relation $f$ such that the language $M = L_f$. If we can derive such equivalance we get a resolution of the problem.  

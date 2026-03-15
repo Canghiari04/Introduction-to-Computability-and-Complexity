@@ -1,0 +1,26 @@
+\begin{example}
+e.g. Let's consider the following task. \vspace{7pt}
+
+\textbf{Task}: multiply two natural numbers $a$ and $b$, both expressed by $n$ digits. \vspace{7pt}
+
+A possible solution could be: reduce the multiplication to a sequence of additions. Therefore, knowing that we have to repeat the addition of number $a$ for $b$
+times, our process is:
+$$a \times b = a+a+ \dots + a$$
+The amount of time required by this process can be summarized as follows:
+$$b \times n$$
+since we repeat the addition operation for $b$ times. We call this process as \textbf{RepeatedAdditions}. \vspace{7pt}
+
+Another process that can solve the previous task might be: multiply $a$ and $b$ using the basic elementary school algorithm.
+Let $a_1, a_2, \dots, a_n$ be the digits of $a$, we compute the final result performing $b \times (a_1 \times 10^0) + \dots + b \times (a_n \times 10^{n-1})$, which
+takes a number of steps equal to $n \times n$. We call this process as \textbf{GridMethod}. \vspace{7pt}
+
+Between these two processes there's a huge difference, that can described as follows:
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \item RepeatedAdditions: the term $b$ can be \textbf{exponential} in $n$, so $b$ might be $10^n$ in the worst case.
+    \item GridMethod: its complexity is quadratic, but anyway we are sure that it takes less time or effort than RepeatedAdditions.
+\end{itemize}
+
+Even though by both processes we can solve the task, RepeatedAdditions approach takes ages. Therefore, they solve the same task in different ways and not 
+always this is acceptable in terms of efficiency.
+\end{example}

@@ -1,0 +1,52 @@
+\begin{definition}
+    The cardinality of any set $X$ is described by:
+    $$|X|$$
+    We will mainly work with discrete numbers: $N$ the set of natural numbers and $Z$ the set of integer numbers. Therefore, we avoid $R$ the set of real numbers,
+    since their cardinalities are infinite.
+\end{definition}
+\begin{definition}
+    A condition $P(n)$ depending on $n \in N$ holds for $n$ if there is a $N \in N$ such that $P(n)$ holds for every $n > N$. \vspace{7pt}
+
+    We are defining a kind of \textit{threshold} to determine if a property $P(n)$ for this $n$ holds or not.
+\end{definition}
+\begin{definition}
+    Given $S$ a finite set, then a string (\textit{a sequence of characters}) defined over an \textbf{alphabet} $S$ is a finite, ordered, possible empty, tuple
+    of elements coming from $S$.
+\end{definition}
+\begin{definition}
+    The set of all strings over $S$ of length exactly $n \in N$ is indicated as $S^n$, where $S^0$ is the set containing only the empty string $\varepsilon$.
+\end{definition}
+\begin{definition}
+    The set of all strings over $S$ is $\cup_{n=0}^{\infty} S^n$ and is indicated as $S^*$.
+\end{definition}
+\begin{definition}
+    The concatenation of two strings $x$ and $y$ over $S$ (\textit{where x and y are defined over the alphabet $S$}) is indicated as:
+    $$xy \text{ or } x \cdot y$$
+\end{definition}
+\begin{definition}
+    The \textbf{length} of a string is indicated as:
+    $$|x|$$
+\end{definition}
+\begin{example}
+    e.g Let's consider the following alphabet.
+    $$\{0,1\}^2 = \{00, 01, 10, 11\}$$
+    where:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item $\{0,1\}^2 \rightarrow$ alphabet
+        \item $\{00, 01, 10, 11\} \rightarrow$ strings defined over the current alphabet
+    \end{itemize}
+
+    A possible concatenation can be:
+    $$000101$$
+    whose cardinality is:
+    $$|000101| = 6$$
+\end{example}
+\begin{definition}[title = Useful notation]
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item For a given real number $x$, $\lceil x \rceil$ is the smallest element of $Z$ such that $\lceil x \rceil \geq x$. Whenever a real number $x$ is use in place of a natural number, we implicity read it as $[x]$.
+        \item For a natural number $n$, $[n]$ is the set $\{1, \dots, n\}$.
+        \item $\text{log } x$ is base 2 logarithm.
+    \end{itemize}
+\end{definition}
