@@ -1,0 +1,50 @@
+Any Turing Machine is composed by a \textbf{scratchpad} and a set of \textbf{instructions}. More formally: \vspace{3.5pt}
+
+$1^{st}$ \textbf{Scratchpad}. \\
+The scratchpad consists of $k$ \textbf{tapes} ($k \geq 3$), each of them is a infinite one-directional sequence of cells. Each cell stores
+a single symbol from a finite alphabet $\Gamma$, also called the alphabet of the machine. Every tape has also a \textbf{head}, capable of reading or writing one symbol 
+at a time. These tapes are categorized into: 
+\begin{enumerate}
+    \item \textbf{Input tape}: typically read-only data structures, these store the initial input string $x$.
+    \item \textbf{Work tape}: intermediate tapes used for the computation of the input string $x$.
+    \item \textbf{Output tape}: tape that contains the result of the computation.
+\end{enumerate} 
+The tape alphabet $\Gamma$ includes the following essential symbols: 
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \item \textbf{Blank} symbol $\square$, indicates an empty cell.
+    \item \textbf{Start} symbol $\triangleright$, marks the beginning of a tape.
+    \item \textbf{0} and \textbf{1} symbols, since we are using strings.
+\end{itemize} 
+$2^{nd}$ \textbf{Instructions}. \\
+The machine operates through a finite set of states, $Q$. During each computational step, the machine performs the following
+sequence of actions:
+\begin{enumerate}
+    \item \textbf{Read} the $k$ symbols under the $k$ tape heads.
+    \item For the $k-1$ read-write tapes, \textbf{replace} the current symbol with a new one, or leave it unchanged.
+    \item \textbf{Change} its state to a new one. 
+    \item \textbf{Move} each of the $k$ tape heads to the left, to the right or stay in place.
+\end{enumerate}\vspace{3.5pt}
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{img/img3.png}
+\end{center} \vspace{3.5pt}
+With these components defined, we have the necessary framework to construct a formal definition of any Turing Machine.
+\begin{definition}
+    A \textbf{Turing Machine} working with $k$ tapes is described by the triple $(\Gamma,Q,\delta)$, where:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item $\Gamma \rightarrow$ tapes' alphabet.
+        \item $Q \rightarrow$ set of states, which includes an \textbf{initial state} $q_{init}$ and a \textbf{final state} $q_{halt}$.
+        \item $\delta \rightarrow$ \textbf{transition function} $$\delta: Q \times \Gamma^k \rightarrow Q \times \Gamma^{k-1} \times \{L,S,R\}^{k-1}$$ The transition function maps the machine's current configuration to its next configuration, defined as: 
+        \begin{itemize}
+            \renewcommand{\labelitemi}{-} 
+            \item $(Q \times \Gamma^k) \rightarrow$ the machine considers its current state $q \in Q$ and the $k$ symbols currently read by the tape heads.
+            \item $(Q \times \Gamma^{k-1} \times \{L,S,R\}^{k-1})$:
+            \begin{itemize}
+                \item $Q \rightarrow$ the machine shifts to a new state.
+                \item $\Gamma^{k-1} \rightarrow$ the machine updates the symbols of $k-1$ read-write tapes, since the input tape is read-only.
+                \item $\{L, S, R\}^k \rightarrow$ the machine specifies a direction (\textit{Left, Stay, Right}) for each of the $k$ tapes.
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{definition}

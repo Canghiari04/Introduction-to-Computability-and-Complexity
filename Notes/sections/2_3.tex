@@ -1,0 +1,25 @@
+Another important notion about any Turing Machine, described by the triple $(\Gamma,Q,\delta)$, is the \textbf{configuration}.
+\begin{definition}
+    A \textbf{configuration} consists of:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item The current state $q$.
+        \item The contents of $k$ tapes.
+        \item The positions of $k$ tape heads.
+    \end{itemize}
+\end{definition}
+There exists only one special configuration among the others, named the \textbf{initial configuration}.
+\begin{definition}
+    The \textbf{initial configuration} $I_x$ for the input $x \in \{0,1\}^*$ is the configuration in which:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item The current state is $q_{init}$.
+        \item The first tape contains $\triangleright x$, followed by blank symbols $\square$, while the other tapes contain $\triangleright$, followed by blank symbols $\square$.
+        \item The tape heads are positionated on the first symbol of the $k$ tapes.
+    \end{itemize}
+\end{definition}
+Additionally, there's also a \textbf{final configuration} that does not require any particular property as before.
+\begin{definition}
+    A \textbf{final configuration} for the output $y \in \{0,1\}^*$ is any configuration of the Turing Machine whose state is $q_{halt}$, in which the 
+    content of the output tape is $\triangleright y$, followed by blank symbols $\square$.
+\end{definition}

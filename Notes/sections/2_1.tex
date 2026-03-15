@@ -1,0 +1,40 @@
+An easy representation about the Turing Machine could be as follows. \vspace{3.5pt}
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{img/img2.png}
+\end{center} \vspace{3.5pt}
+where:
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \item $\{0,1\}^*\rightarrow$ alphabet that provides us a whatever string of any dimension
+    \item \textit{Scratchpad} $\rightarrow$ physical part of the Turing Machine
+    \item \textit{Instructions} $\rightarrow$ set of symbols used by the Turing Machine
+    \item $\{0,1\} \rightarrow$ answer of the Turing Machine as a single character
+\end{itemize}
+Therefore, given in input a whatever string from the alphabet $\{0,1\}^*$ returns $0$ or $1$, that respectively described when a \textbf{decision problem} is \textbf{decidable}
+or \textbf{undecidable}. Informally, if we want to compute a function $f:\{0,1\}^* \rightarrow \{0,1\}$, we need a finite, simple and generic set of instructions.
+Instructions of the Turing Machine are divided into:
+\begin{enumerate}
+    \item Read a bit.
+    \item Read a symbol from the  scratchpad.
+    \item Write a symbol into the scratchpad.
+    \item Declare the computation finished or terminated.
+\end{enumerate}
+The \textbf{running time} of any Turing Machine on the input $x$ is simply the number of basic instructions made. Generally, we say that the machine \textbf{runs in time}
+$T(n)$ if it performs at most $T(n)$ instructions on the input string of length $n$. Notice, every instruction made by the Turing Machine is done for each bit or \textit{cell}
+that composed the original string $x$ given in input. \vspace{3.5pt}
+
+Since the set of instructions is finite, the instructions can be encoded as strings, and therefore the machine can be described as a string. 
+\begin{definition}
+    Given a string $\alpha$, we indicate with $M_{\alpha}$ the Turing Machine encoded by $\alpha$.
+\end{definition}
+\begin{definition}
+    With $U$ we indicate the \textbf{Universal Turing Machine}, which simulates any other Turing Machine given its string representation (\textit{as $\alpha$ in the previous definition}):
+    given the pair $(x, \alpha)$ the machine $U$ simulates the behaviour of $M_{\alpha}$ on $x$, where:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item $\alpha \rightarrow$ encoding of the Turing Machine $M_{\alpha}$
+        \item $x \rightarrow$ input string of whenever dimension
+    \end{itemize}
+\end{definition}
+However, there are functions as $f: \{0,1\}^* \rightarrow \{0,1\}$ which are intrinsically uncomputable by Turing Machines. We need a more formal way in order to prove 
+their \textbf{uncomputability}.
