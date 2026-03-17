@@ -1,0 +1,17 @@
+\begin{definition}[title = The Church-Turing Thesis]
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item Every physically realizable computer can be simulated by a Turing Machine with a overhead in time.
+        \item The class of computable tasks would not be larger if formalized in a realistic way, but differently.
+    \end{itemize}
+\end{definition}
+\begin{definition}[title = The Strong Church-Turing Thesis]
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item Every physically realizable computer can be simulated by a Turing Machine with \textbf{polynomial} overhead in time ($n$ steps on the computer requires $n^c$ on Turing Machines, where $c$ only depends on the computer), and viceversa.
+        \item The class \textbf{P} would be \textbf{the same} if defined based on other realistic models of computation.
+    \end{itemize}
+\end{definition}
+
+Note: by the second thesis we specify that for any task belonging to the complexity class \textbf{P} its resolution by any Turing Machine always requires
+a \textit{polynomial} overhead in time.

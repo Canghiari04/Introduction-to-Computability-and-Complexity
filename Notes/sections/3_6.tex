@@ -1,0 +1,34 @@
+In theory, we should design a Turing Machine, working within some polynomial boundaries, and prove that this machine decides (solves) the language (decision problem)
+or computes the function. However, this approach will take ages.
+
+Instead of going through Turing Machines, we could use an informal but more expressive tool the so called \textbf{pseudocode}.
+\begin{example}
+    e.g. Suppose we want to show the following problem to be computable in polynomial time:
+    \begin{center}
+        \textit{given two strings $x,y \in \{0,1\}^*$ determine if $x$ contains an instance of $y$ (is $y$ a substring of $x$?)}
+    \end{center} \vspace{7pt}
+    A pseudocode solving the problem above is the following. \vspace{7pt}
+
+    \begin{center}
+        \includegraphics[width=0.35\textwidth]{img/img4.png}
+    \end{center}
+
+    The most amount of work is done inside the \textit{if condition}: by pseudocode we cannot anymore state that every operation has the same unary cost as
+    Turing Machines. In this case the amount of work done is at least equal to the size of $y$.
+\end{example}
+How could we be sure that the algorithm shown works in polynomial time? We must satisfy some constraints about that, divided into:
+\begin{enumerate}
+    \item The input can be easily encoded as a binary string. Notice, we use pseudocode as a short-cut, but the formal proof should be done by the construction of a Turing Machine.
+    \item The total number of instructions executed is polynomially bounded.
+    \item All intermediate results are polynomially bounded in length.
+    \item Each instruction takes polynomial time to be simulated.
+\end{enumerate}
+\begin{example}
+    e.g. Defining the polynomial complexity of the previous algorithm. \vspace{7pt}
+
+    \begin{enumerate}
+        \item The total number of instructions executed is bounded by $O(|x|)$.
+        \item The intermediate results obtained over $i$ cannot be greater than $O(|x|)$.
+        \item Comparing two strings of length $|y|$ can be done in polynomial time in $|y|$, thus polynomial in $| \lfloor (x,y) \rfloor |$
+    \end{enumerate}
+\end{example}

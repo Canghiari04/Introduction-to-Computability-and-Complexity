@@ -1,0 +1,17 @@
+Sometimes, one would like to classify \textbf{functions} rather than \textbf{languages} (remember, a computational task can be expressed by a function or a
+language). This can be done generalizing some concepts we have previously introduced.
+
+In particular, let $T: N \rightarrow N$ be the function used to detect how much time it's required for solving an instance of whatever problem, we state the
+following definition.
+\begin{definition}
+    A function $f$ is in the class \textbf{FDTIME}(T(n)) if and only if \textbf{there is} a Turing Machine computing $f$ and running in time $n \rightarrow c 
+    \cdot T(n)$ for some constant $c$.
+\end{definition}
+The complexity class \textbf{FP} is defined as below, very similar to the complexity class \textbf{P}:
+$$ \textbf{FP} = \bigcup_{c \geq 1} \textbf{FDTIME}(n^c)$$
+From the definition of the complexity class \textbf{FP} we can also describe other two peculiarities:
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \item For every language $L \in P$, the characteristic function $f$ of $L$ is trivially in \textbf{FP}.
+    \item For certain classes of functions, there are canonical ways to turn a function $f$ into a language $L_f$. However, it is not true that $f \in \textbf{FP}$ implies $L_f \in \textbf{P}$.
+\end{itemize}

@@ -1,0 +1,17 @@
+A \textbf{complexity class} is a set of \textit{tasks} which can be computed within a specific quantity of resources (roughly speaking, these tasks are sharing
+the same complexity, how complex they are to solve). \vspace{3.5pt}
+
+Note: a \textbf{computational task} is what we really want to achieve and it can be expressed as a function or a decision problem. \vspace{3.5pt}
+
+Typically, the tasks we are interested in are decision problems, or equivalently languages (for instance, a subset of the alphabet $\{0,1\}^*$). In particular,
+let $T: N \rightarrow N$ be a function used to detect how much time it's required for solving an instance of whatever problem, we state the following definition.
+\begin{definition}
+    A language $L$, subset of $S^*$ ($L \in \{0,1\}^*$), is in the class \textbf{DTIME}$(T(n))$ if and only if there is a \textit{Turing Machine} deciding $L$
+    and running in time $n \rightarrow c \cdot T(n)$ for some constant $c$.
+\end{definition} 
+With the above definition we are saying that there exist some \textit{Turing Machines} capable of solving the given task in linear time. This is not an universal
+definition, maybe other Turing Machines could require less time for the resolution. However, since a particular task has a time complexity 
+\textbf{proportional} to $T(n)$ we know for sure that even in the worst case it requires no more than linear time. \vspace{3.5pt}
+
+The letter \textbf{D} in \textbf{DTIME}$(.)$ refers to \textit{determinism}: the machines on which the class is based work deterministically, swapping to an 
+already known new configuration $C_i$.

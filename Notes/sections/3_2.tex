@@ -1,0 +1,14 @@
+The complexity class at the bottom of our hierarchy is the class \textbf{P}. The class \textbf{P} is defined as follows:
+$$ P = \bigcup_{c \geq 1} \textbf{DTIME}(n^c)$$
+We get the union of all the \textbf{DTIME}$(n^c)$ classes whose function is any polynomial time representation $n^c$, therefore obtaining an unique set of all 
+those tasks sharing the same time complexity.
+
+In other words, the class \textbf{P} includes all those languages $L$ (decision problems) that can be decided (solved) by a Turing Machine in a running time $P$,
+where $P$ can be any polynomial time representation of the form $n^c$.
+
+More formally, for any polynomial \textbf{P} there are $c,d$ natural numbers that are strictly greater than 0 such that $P(n) \leq c \cdot n^d$ for suffiently 
+large $n$. By this last statement, we can observe that $c$ and $d$ can be arbitraly large or huge, so, for instance, a \textit{Turing Machine} deciding a given 
+language $L$ (decision problem) in time $10^{20} \cdot n^{10^{30}}$ still always a resolution in a polynomial time!
+
+\textbf{P} is generally considered as \textbf{the class} of efficiently decidable languages, problems or tasks of this class seem to be simple, but anyway
+it's always possible to build a machine that solves the same problem or task with a different complexity.

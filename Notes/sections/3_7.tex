@@ -1,0 +1,15 @@
+The next class of functions $T: N \rightarrow N$, beyond the polynomials and having nice closure properties is the class of exponential functions. The complexity
+classes \textbf{EXP} and \textbf{FEXP} are defined as follows:
+$$ \textbf{EXP} = \bigcup_{c \geq 1} \textbf{DTIME}(2^{n^c}) \textbf{ FEXP} = \bigcup_{c \geq 1} \textbf{FDTIME}(2^{n^c})$$
+The tasks in these classes can be solved mechanically, but possibly cannot be solved efficiently. Of course, the previous complexity classes \textbf{P} and 
+\textbf{FP}, respectively for languages and functions, are subsets of the ones introduced.
+$$ \textbf{P} \subseteq \textbf{EXP} \textbf{ FP} \subseteq \textbf{FEXP}$$
+\begin{definition}[title = Theorem]
+    The two inclusions above are strict.
+\end{definition}
+The theorem seems to be quite weird, but what it's saying is quite easy to understand:
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \item Some problems are in \textbf{EXP} complexity class but not in \textbf{P}.
+    \item Some functions are in \textbf{FEXP} complexity class but not in \textbf{FP}.
+\end{itemize} 
