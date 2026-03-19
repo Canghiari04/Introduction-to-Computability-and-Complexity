@@ -1,0 +1,116 @@
+\begin{example}[title = Computational task as a function]
+    \textbf{Problem}. \\
+    Prove that function \textit{minmax} which given (the encoding of) a list of natural numbers $(a_1, \dots, a_m)$ returns both \textit{min} and \textit{max}
+    between $a_1, \dots, a_m$ in \textbf{FP}. \vspace{14pt}
+
+    \textbf{Note}. \\
+    We solve a computational task as a function not as a decision problem (\textit{language}), since we need a \textit{path} to achieve the solution. \vspace{14pt}
+
+    \textbf{Solution}. \\
+    We can describe an algorithmic solution to this problem as follows:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{}
+        \item \textbf{input}: $(a_1, \dots, a_m)$, $m \in N$, $a_i \in N$.
+        \item \textbf{output}: $(b,c)$, where $b$ is the \textit{min} between $a_1, \dots, a_m$ while $c$ is the max value of the list.
+    \end{itemize} \vspace{14pt}
+
+    \textbf{Pseudocode}.
+    \begin{algorithmic}
+        \State $min \gets a_1$
+        \State $max \gets a_2$
+        \For{$i \gets 2$ $\textbf{to } m$}
+            \If{$a_i \le min$}
+                \State $min \gets a_i$
+            \ElsIf{$a_1 \ge max$}
+                \State $max \gets a_i$
+            \EndIf
+        \EndFor
+        \State $return(min, max)$
+    \end{algorithmic} \vspace{14pt}
+
+    Now we state the \textit{three things} to prove that the algorithmic solution is in \textbf{FP}. Notice, the \textit{three things} correspond to:
+    \begin{enumerate}
+        \item Determine the total time complexity of every step done in the solution.
+        \item Define if intermediate results have a complexity greater or lower than the total one.
+        \item Auxiliary functions or operations don't have a time complexity greater than the total one derived.
+    \end{enumerate} \vspace{14pt}
+    
+    $1^{st}$ \textbf{Total number of steps}. \\ 
+    We are gonna to take the whole pseudocode and analyze it piece by piece, considering one macro-operation at time. \vspace{7pt}
+
+    $1^{st}$ macro-operation $\rightarrow$ assignment done for $2$ times. 
+    \begin{algorithmic}
+        \State $min \gets a_1$
+        \State $max \gets a_2$
+    \end{algorithmic} \vspace{3.5pt}
+
+    $2^{nd}$ macro-operation $\rightarrow$ loop done for $n$ times (it can be described as $n-1$ since the loop starts from $2$ and not $1$,
+    but we can already say that it's proportional to $O(n)$).
+    \begin{algorithmic}
+        \For{$i \gets 2$ $\textbf{to } m$}
+        \EndFor
+    \end{algorithmic} \vspace{3.5pt}
+
+    $3^{rd}$ macro-operation $\rightarrow$ repeating comparisons and assignments at most $4$ times at each iteration.
+    \begin{algorithmic}
+        \If{$a_i \le min$}
+            \State $min \gets a_i$
+        \ElsIf{$a_1 \ge max$}
+            \State $max \gets a_i$
+        \EndIf
+    \end{algorithmic} \vspace{3.5pt}
+
+    $4^{th}$ macro-operation$\rightarrow$ return done $1$ time.
+    \begin{algorithmic}
+        \State $return(min, max)$
+    \end{algorithmic} \vspace{7pt}
+
+    Therefore the pseudocode above executes at most:
+    $$ (2 + O(n) \cdot 4 + 1) \in O(n) $$
+    We can also state that the complexity of the algorithm is $ \Theta(n)$, since we have to scan the whole list in any circumstance, so it's strictly 
+    proportional to $n$. \vspace{7pt}
+
+    $2^{nd}$ \textbf{Intermediate results}. \\
+    The only intermediate results are \textit{min} and \textit{max}, not to much designing this algorithm. However, we can notice that the of $min$ and $max$
+    are never greater than the length of the input list, in particular: \vspace{1.5pt}
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item $ |min| \leq |a_1, \dots, a_m| \leq n $
+        \item $ |max| \leq |a_1, \dots, a_m| \leq n $
+        \item $ |i| \leq log(m \in O(m)) $
+    \end{itemize} \vspace{1.5pt}
+    We are just stressing that all the intermediate results belong to $O(n)$ or, better, have in the worst case a polynomial time complexity. \vspace{7pt}
+
+    $3^{rd}$ \textbf{Auxiliary functions}. \\
+    The auxiliary functions are:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item two comparisons;
+        \item assignments done over the index.
+    \end{itemize}
+    Each instruction can itself be executed in polynomial time, since the only non-elementary instruction doen is the compatison. \vspace{14pt}
+
+    \textbf{Final mark}. \\
+    All in all, given the previous three points, we can state that $minmax$ function is bounded by polynomial time execution, and:
+    $$ \textit{minmax} \in \textbf{FP} $$
+\end{example}
+
+\begin{example}[title = Decision problem about graphs]
+    \textbf{Problem}. \\
+    If $G = (V,E)$ is a graph, the reachability problem asks to determine, given $u,v \in V$, whether $v$ it's reachable from $u$, namely whether exists 
+    a sequence $w_1, \dots, w_n$ of nodes with $u = w_1$, $v = w_m$ and $(w_i, w_{i+1}) \in E$ for every $i \in \{1, \dots, m-1\}$. \vspace{7pt}
+
+    \begin{center}
+        \includegraphics[width = 0.55\textwidth]{img/img1.png}
+    \end{center} \vspace{7pt}
+
+    Prove that the above \textbf{decision problem} is in \textbf{P}. \vspace{14pt}
+
+    \textbf{Solution}. \\
+    First of all, we define the waited input and the expected output from the algorithmic solution, in particular:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{}
+        \item \textbf{input}: 
+        \item \textbf{output}:
+    \end{itemize}
+\end{example}
