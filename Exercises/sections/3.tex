@@ -65,13 +65,13 @@
         \State $return(min, max)$
     \end{algorithmic} \vspace{7pt}
 
-    Therefore the pseudocode above executes at most:
+    Therefore, the pseudocode above executes at most:
     $$ (2 + O(n) \cdot 4 + 1) \in O(n) $$
     We can also state that the complexity of the algorithm is $ \Theta(n)$, since we have to scan the whole list in any circumstance, so it's strictly 
     proportional to $n$. \vspace{7pt}
 
     $2^{nd}$ \textbf{Intermediate results}. \\
-    The only intermediate results are \textit{min} and \textit{max}, not to much designing this algorithm. However, we can notice that the of $min$ and $max$
+    The only intermediate results are \textit{min} and \textit{max}, not to much designing this algorithm. However, we can notice that the sizes of $min$ and $max$
     are never greater than the length of the input list, in particular: \vspace{1.5pt}
     \begin{itemize}
         \renewcommand{\labelitemi}{-}
@@ -79,7 +79,7 @@
         \item $ |max| \leq |a_1, \dots, a_m| \leq n $
         \item $ |i| \leq log(m \in O(m)) $
     \end{itemize} \vspace{1.5pt}
-    We are just stressing that all the intermediate results belong to $O(n)$ or, better, have in the worst case a polynomial time complexity. \vspace{7pt}
+    We are just stressing that all the intermediate results belong to $O(n)$ or, better, they have in the worst case a polynomial time complexity. \vspace{7pt}
 
     $3^{rd}$ \textbf{Auxiliary functions}. \\
     The auxiliary functions are:
@@ -88,7 +88,7 @@
         \item two comparisons;
         \item assignments done over the index.
     \end{itemize}
-    Each instruction can itself be executed in polynomial time, since the only non-elementary instruction doen is the compatison. \vspace{14pt}
+    Each instruction can itself be executed in polynomial time, since the only non-elementary instruction done is the comparison. \vspace{14pt}
 
     \textbf{Final mark}. \\
     All in all, given the previous three points, we can state that $minmax$ function is bounded by polynomial time execution, and:
@@ -110,7 +110,101 @@
     First of all, we define the waited input and the expected output from the algorithmic solution, in particular:
     \begin{itemize}
         \renewcommand{\labelitemi}{}
-        \item \textbf{input}: 
-        \item \textbf{output}:
-    \end{itemize}
-\end{example}
+        \item \textbf{input}: $G = (V, E)$, $u$, $v$.
+        \item \textbf{output}: $0$ or $1$ depending on $v$ is reachable from $u$.
+    \end{itemize} \vspace{14pt}
+
+    \textbf{Pseudocode}.
+    \begin{algorithmic}
+        \State $\text{visited} \gets [u]$
+        \State $\text{current} \gets [u]$
+        \While{$\text{current} \neq \text{[ ]}$}
+            \State $\text{pick } w \text{ from current}$
+            \State $\text{remove } w \text{ from current}$
+            \For{$\textbf{each } (w,t) \in E$}
+                \If{$t \notin \text{visited}$}
+                    \State $\text{add } t \text{ to visited}$
+                    \State $\text{add } t \text{ to current}$
+                \EndIf
+            \EndFor
+        \EndWhile
+        \If{$v \in \text{visited}$}
+            \State $\text{return true}$
+        \Else
+            \State $\text{return false}$
+        \EndIf
+    \end{algorithmic} \vspace{14pt}
+
+    \textbf{Note}. \\
+    It's not a computational task described as a function, since we provide if $v$ belongs or not to the list $visited$. \vspace{14pt}
+
+    Before stating the \textit{three things} in order to prove the time complexity of this solution, we could describe some observations about it. \vspace{7pt}
+
+    \textbf{Observations}.
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item $Visited$ list can only grow and never shrink.
+        \item We use the double-list check to avoid infinite loops if the graph contains cycles.
+        \item $Current$ list is always a sublist of $visited$ list, whatever we have in $current$ it's also inside $visited$.
+        \item Whenever we add a node in $current$ we do this if and only if $t \notin visited$. As a consequence, it could never be part of $current$ in the past.
+    \end{itemize} \vspace{7pt}
+
+    Now we state the \textit{three things} to prove that the algorithmic solution above is in \textbf{P}. \vspace{14pt}
+
+    $1^{st}$ \textbf{Total number of steps}. \\
+    We take the whole pseudocode and we analyze it piece by piece, considering one macro-operation at time. \vspace{7pt}
+    
+    $1^{st}$ macro-operation $\rightarrow$ while loop done for $n$ times.
+    \begin{algorithmic}
+        \While{$\text{current} \neq \text{[ ]}$}
+        \EndWhile
+    \end{algorithmic}
+
+    $2^{nd}$ macro-operation $\rightarrow$ pick and remove a node done at most $2$ times.
+    \begin{algorithmic}
+        \State $\text{pick } w \text{ from current}$
+        \State $\text{remove } w \text{ from current}$
+    \end{algorithmic}
+
+    $3^{rd}$ macro-operation $\rightarrow$ for loop done for $n$ times.
+    \begin{algorithmic}
+        \For{$\textbf{each } (w,t) \in E$}
+        \EndFor
+    \end{algorithmic}
+
+    $4^{th}$ macro-operation $\rightarrow$ comparison and lists manipulation done at most $3$ times.
+    \begin{algorithmic}
+        \If{$t \notin \text{visited}$}
+            \State $\text{add } t \text{ to visited}$
+            \State $\text{add } t \text{ to current}$
+        \EndIf
+    \end{algorithmic}
+
+    $5^{th}$ macro-operation $\rightarrow$ comparison and return done at most $4$ times.
+    \begin{algorithmic}
+        \If{$v \in \text{visited}$}
+            \State $\text{return true}$
+        \Else
+            \State $\text{return false}$
+        \EndIf
+    \end{algorithmic}
+
+    Therefore, the pseudocode above executes at most:
+    $$ O(n) \cdot (2 + O(n) \cdot 3) + 4 \in O(n^2) $$ 
+
+    $2^{nd}$ \textbf{Intermediate results}. \\
+    There are just two intermediate variables, $visited$ and $current$, both containing vertices without any possibility of inner duplications. Therefore, their
+    sizes are clearly polynomial in $n$.
+
+    $3^{rd}$ \textbf{Auxiliary functions}. \\
+    Each instruction can be executed in polynomial time. All of them are list manipulation operations: \vspace{1.5pt}
+    \begin{enumerate}
+        \item add element;
+        \item remove element;
+        \item check if there's an element in the list.
+    \end{enumerate}
+    For sure, every instruction or manipulation operation about a list can be executed in polynomial time. \vspace{14pt}
+
+    \textbf{Final mark}. \\
+    Summing up, the reachability problem is in \textbf{P}.
+\end{example} 
