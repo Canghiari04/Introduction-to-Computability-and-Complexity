@@ -1,0 +1,14 @@
+The function $uc$ we proved uncomputable does not represent an interesting computational task. We consider, instead, the function $halt$ defined as follows:
+\begin{definition}
+    $$ halt(\lfloor (\alpha, x) \rfloor) = \begin{cases} 1 \text{ if } M_{\alpha} \text{ halt on input } x \\ 0 \text{ otherwise } \end{cases} $$
+    where: 
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item $\alpha \rightarrow$ the encoding string
+        \item $x \rightarrow$ input data
+    \end{itemize}
+\end{definition}
+Being able to compute the $halt$ function would mean being able to check algorithms for termination.
+\begin{definition}[title = Theorem]
+    The function $halt$ is not computable by any Turing Machine.
+\end{definition}

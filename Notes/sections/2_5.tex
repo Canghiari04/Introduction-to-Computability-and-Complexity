@@ -1,0 +1,12 @@
+Solving a function can be done by a \textbf{simulation} of a Turing Machine and we can design several machines for the resolution of the same computational task.
+We need a way to compare them and generally it's done counting how many \textbf{transitions} are required to achieve the output $y$.
+\begin{definition}
+    A Turing Machine $M$ computes a function $f: \{0,1\}^* \rightarrow \{0,1\}^*$ \textbf{in time} $T: N \rightarrow N$ if and only if $M$ returns $f(x)$ on input 
+    $x$ in a number of steps smaller or equal to $T(|x|)$ for every $x \in \{0,1\}^*$. In this case, $f$ is said to be \textbf{computable} in time $T$.
+\end{definition}
+\begin{definition}
+    A language $L_f \subseteq \{0,1\}^*$ is \textbf{decidable} in time $T$ if and only if $f$ is computable in time $T$.
+\end{definition}
+Note: $L_f$ is a subset of alphabet $\{0,1\}^*$ mainly used by the characteristic function. \vspace{7pt}
+
+In this case we do not have a real difference between \textbf{computable} and \textbf{decidable}, they can be used as synonyms.

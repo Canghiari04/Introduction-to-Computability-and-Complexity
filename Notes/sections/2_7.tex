@@ -1,0 +1,5 @@
+\begin{definition}[title = Theorem]
+    There exists a Turing Machine $U$ such that for every $x, \alpha \in \{0,1\}^*$, it holds that $U(x, \alpha) = M_{\alpha}(x)$, where $M_{\alpha}$ denotes 
+    the Turing Machine represented by $\alpha$. Moreover, if $M_{\alpha}$ halts on input $x$ within $T$ steps then $U(x,\alpha)$ halts within $C \cdot T \cdot log(T)$
+    steps, where $C$ is independent of $|x|$ and depending only on $M_{\alpha}$.
+\end{definition}

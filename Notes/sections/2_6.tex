@@ -1,0 +1,11 @@
+We are moving slowly to the main topic of this section: \textbf{everything} is not computable. \vspace{7pt}
+
+The main advantage of keeping our definition about a Turing Machine simple as much as possible is that any machine described by the triple $M = (\Gamma, Q, \delta)$
+can be determined by a subset of $\delta$, more formally:
+$$ \delta: Q \times \Gamma^{k} \times Q \times \Gamma^{k-1} \times \{L,S,R\}^{k} $$
+where $\delta$ can be mapped as a graph. This means that by any acceptable encoding of $\delta$ as binary string in $\{0,1\}^*$ defines a valid encoding $\lfloor M \rfloor$ 
+for the current Turing Machine $M$ used. By the way, the representation of the Turing Machine by $\delta$ is possible providing the following conditions:
+\begin{enumerate}
+    \item Every string in $\{0,1\}^*$ represents a Turing Machine.
+    \item Every Turing Machine $M$ is represented by an infinitely many strings.
+\end{enumerate}

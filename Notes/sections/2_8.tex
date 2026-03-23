@@ -1,0 +1,14 @@
+\begin{definition}[title = Theorem]
+    There exists a function $uc: \{0,1\}^* \rightarrow \{0,1\}^*$ that is not computable by any Turing Machine.
+\end{definition}
+\begin{example}
+    e.g. Let's consider the following function. 
+    $$ uc(\alpha) = \begin{cases} 0 \text{ if } M_{\alpha}(\alpha) = 1 \\ 1 \text{ otherwise} \end{cases} $$
+    We can prove that does not exist a Turing Machine to solve this function by \textbf{contradiction}. Assuming that exists a Turing Machine $M$ such that
+    $M(\alpha) = uc(\alpha)$ $\forall \alpha \in \{0,1\}^*$, and in particular when $\alpha = \lfloor M \rfloor$ we get:
+    $$ uc(\lfloor M \rfloor) = 1 \iff M(\lfloor M \rfloor) \neq 1 \iff uc(\lfloor M \rfloor) = 0 $$
+    which is obviously a contradiction, so $uc$ is not computable by any Turing Machine.
+\end{example}
+Notice: the resolution of any function is done by the following equivalence: $M(x) = f(x)$ for every $x \in \{0,1\}^*$. Simply, we are stating that to solve 
+the function it must be the same thing as solving it by a Turing Machine. The example above does not work by construction, we are returning different outputs 
+giving the same input, breaking the previous equivalence done.

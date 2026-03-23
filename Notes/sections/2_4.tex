@@ -1,1 +1,18 @@
-\dots
+Let's consider a Turing Machine described by the triple $M = (\Gamma,Q,\delta)$ working on $k$ tapes. The \textit{transition function} $\delta$
+must determine in a natural way the next configuration of the current Turing Machine.
+\begin{definition}
+    Given any starting configuration $C$, the transition function $\delta$ determines the next configuration $D$, and we write
+    $$ C \xrightarrow{\delta} D$$
+    if this is the case.
+\end{definition}
+Any machine will return an output working on a given input in a total amount of steps.
+\begin{definition}
+    $M$ returns $y \in \{0,1\}^*$ on input $x \in \{0,1\}^*$ in $t$ steps if 
+    $$ I_x \xrightarrow{\delta} C_1 \xrightarrow{\delta} C_2 \xrightarrow{\delta} \dots C_t $$
+    where $C_t$ is a final configuration for $y$. We write $M(x)$ for $y$ if it holds.
+\end{definition}
+\begin{definition}
+    $M$ computes a function $f: \{0,1\}^* \rightarrow \{0,1\}^*$ if and only if 
+    $$M(x) = f(x) \text{ for every } x \in \{0,1\}^*.$$ 
+    In this case, $f$ is said to be \textbf{computable}.
+\end{definition}

@@ -1,0 +1,11 @@
+\begin{definition}[title = Theorem]
+    Every semantic decidable language is trivial, i.e. either $L = \emptyset$ or $L = \{0,1\}^*$.
+\end{definition}
+A language $L \subseteq \{0,1\}^*$ is \textbf{semantic} when the following condition holds: 
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \item $M$ and $N$ compute the same function.
+    \item The encoding strings of the machines belong to $L$, $\lfloor M \rfloor \in L$ and $\lfloor N \rfloor \in L$.
+\end{itemize}
+In other words, we are saying that two machines compute the same function if both their encoding strings 
+belong to the same semantic language $L$.
