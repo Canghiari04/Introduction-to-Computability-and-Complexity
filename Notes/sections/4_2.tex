@@ -1,0 +1,27 @@
+The first such class of this great area is \textbf{NP}. \textit{NP} has to deal with a process called \textbf{verification}. Therefore, very often, the language
+we would like to classify can be written as follows:
+$$ L = \{x \in \{0,1\}^* | \exists y \in \{0,1\}^{p(|x|)}.(x,y) \in A\} $$
+where:
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \item $p: N \mapsto N \rightarrow$ polynomial function
+    \item $A \rightarrow$ set of pairs of strings
+\end{itemize}
+This definition of language may seem quite tricky, but simply it says: the elements of language $L$ are those strings for which we can find a \textbf{certificate}
+$y$ (\textit{of polynomial length}) such that the pair $(x, y)$ passes the \textbf{test} $A \subseteq \{0,1\}^* \times \{0,1\}^*$. \vspace{7pt}
+
+A certificate $y$ is a string of polynomial length, it cannot be too big compared to the string $x$. Therefore, in order to prove that $x$ belongs to $L$
+through $y$ must be a polynomial relation between their lengths.
+
+The key point of this definition is the \textbf{existential quantificator}: $x$ is precisely those strings such that there exist a \textbf{certificate} $y$. 
+Additionally, $A$ is a set that is really easy to check, what is called the \textbf{verifier}: veryfing whether a given certificate is a good certificate 
+for a string $x$ is quite trivial. However, it's not necessary easy to check if such certificate exists or not. \vspace{7pt}
+
+Supposing there is a language $L$ that can be expressed as the definition shown previously, such that the inner set of pairs of strings can be decided 
+in polynomial time. \textbf{Does this imply that $L$ is itself decidable in polynomial time}? 
+
+The real answer of this double implication question is \textbf{not necessarily}: given $x$, we can check whether $x \in L$ by checking whether the couple 
+$(x, y) \in A$ for all possible $y$ such that $|y| \leq p(|x|)$, of which however there are exponentially many. \vspace{7pt}
+
+The \textbf{take-away message} is thus the following: \textbf{crafting} a solution for the problem $x$ (\textit{finding $y$}) can potentially be more difficult
+than just \textbf{checking} $y$ to be a solution to $x$.

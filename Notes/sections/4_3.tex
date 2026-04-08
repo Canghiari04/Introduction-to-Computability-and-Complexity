@@ -1,0 +1,47 @@
+The class \textbf{NP} is defined in the following way:
+\begin{definition}
+    A language $L \in \{0,1\}^*$ is in the class \textbf{NP} if and only if there exist a polynomial $p: N \rightarrow N$ and a polynomial time Turing Machine 
+    $M$ such that:
+    $$ L = \{x \in \{0,1\}^* | \exists y \in \{0,1\}^{p(|x|)}.M(\lfloor (x, y) \rfloor) = 1\} $$
+    where:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item $M \rightarrow$ \textbf{verifier} for language $L$
+        \item $y \in \{0, 1\}^{p(|x|)} \text{ s.t. } M(\lfloor (x, y) \rfloor) = 1 \rightarrow$ \textbf{certificate} for $x$
+    \end{itemize}
+\end{definition}
+\textit{NP} is the class of problems such that certificates are polynomial in length and they can be verified in polynomial time. \vspace{7pt}
+
+Differently from \textit{P} and \textit{EXP} that have as counterpart the class of functions, the class \textit{NP} does not have a natural counterpart as 
+a class of functions. 
+
+Finally, we can state that \textit{NP} sits between \textit{P} and \textit{EXP}. More formally:
+\begin{definition}[title = Theorem]
+    $$ P \subseteq \textit{NP} \subseteq \textit{EXP} $$
+\end{definition}
+\begin{example}[title = Minimum independent set]
+    e.g. We consider this task as a set of problems. \vspace{7pt}
+
+    \textbf{Problem}. \\
+    It asks whether a pair $(G, k)$ of an undirected graph and a natural number $k \in N$ is such that $G = (V, E)$ admits an independent set $W \subseteq V$ of 
+    cardinality at least $k$. \vspace{7pt}
+
+    \textbf{Note}. \\ 
+    We are not computing the paramater $k$ but, instead, we provide it as an input parameter. We use it in order to check if it exists an independent set 
+    of nodes of cardinality at least equal to $k$. \vspace{7pt}
+
+    \textbf{Certificate}. \\ 
+    In this problem or language, the certificate coincides with the independent set $W$. Check its cardinality and independency is quite easy, but what is really 
+    tricky of this task is to find out the independent set $W$. \vspace{7pt}
+\end{example}
+\begin{example}[title = Subset sum]
+    e.g. Subset sum problem. \vspace{7pt}
+
+    \textbf{Problem}. \\ 
+    It asks whether, given a sequence of natural numbers $n_1, \dots, n_m$ and a number $k$, there exists a subset $I$ of \{1, \dots, m\} such that:
+    $$ \sum_{i \in I} n_i = k $$ 
+
+    \textbf{Certificate}. \\ 
+    It's pretty simple to identify the certificate of this language: the certificate here is just $I$, checking whether the summation is equal to a natural number
+    is very easy.
+\end{example}
