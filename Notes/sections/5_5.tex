@@ -1,0 +1,10 @@
+For sure, $A$ knows or will learn that the way input data are labelled is by way of a rectangle: red points are inside the rectangle, while blue points 
+are outside the rectangle. Anyway, at the same time, there are some things that it does not know, which are:
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \item It does not know which is the exact rectangle searched.
+    \item It does not know the distribution $\boldsymbol{D}$ from which the points $(x,y)$ are drawn.
+\end{itemize}
+About the last statement, we don't want that our learning algorithm works only with few or specific distributions of data. We would like that $A$ works
+well \textbf{independently} from any distribution from which we sample data. For these main reasons the distributions of data cannot be something that we can use 
+to build our solution.

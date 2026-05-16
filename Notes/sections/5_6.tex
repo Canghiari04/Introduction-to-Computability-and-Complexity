@@ -1,0 +1,52 @@
+We could try to define an algorithm $A_{BFP}$ to solve the previous problem, in particular:
+\begin{enumerate}
+    \item Given the data $((x_1, y_1), p_1), \dots, ((x_n, y_n), p_n)$, where $p_i$ defines the color of the point.
+    \item Determine the smallest rectangle $R$ including all the positive instances, namely the red points.
+    \item Return the rectangle $R$.
+\end{enumerate}
+Running such algorithm, the result will be always a sub-rectangle of the target rectangle. Since the output rectangle is not the one desired, is the algorithm 
+proposed incorrect? The answer is \textbf{negative}: what we would like to understand is the behavior of the learning algorithm at the limit, while it is 
+\textbf{converging} to the optimal rectangle. \vspace{7pt}
+
+For a given rectangle $R$ and a target rectangle $T$, the \textbf{probability of error} in using $R$ as replacement of $T$ is:
+$$\text{error}_{\boldsymbol{D},T}(R) = Pr_{x \sim \boldsymbol{D}}[x \in (R-T) \cup (T-R)]$$
+where:
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \item $x \rightarrow$ input data coming from a unknown distribution
+    \item $\boldsymbol{D} \rightarrow$ unknown distribution 
+    \item $R \rightarrow$ output rectangle
+    \item $T \rightarrow$ target rectangle
+\end{itemize} \vspace{7pt}
+
+Note: the target rectangle $T$ is also called ground-truth in machine learning tasks.
+
+Roughly speaking, the formula tells us: the error of using $R$ as a replacement of $T$, when points are drawn from distribution $\boldsymbol{D}$, is equal to the probability 
+that a randomly drawn point falls into the region where $R$ and $T$ disagree. \vspace{7pt}
+
+Note: the difference between the regions $R$ and $T$, or vice-versa, is not the intersection of the two, but instead the \textbf{symmetric difference}. Therefore, the 
+error counts only the points where the two rectangles disagree. Since $R$ is always a sub-rectangle of $T$, the first difference, $(R-T)$, will be always the 
+empty set, $\emptyset$. \vspace{7pt}
+
+As the number of samples inside the training set $D$ grows, the result $A_{BFP}(D)$ does not necessarily approach to the target rectangle (\textit{since it's unfeasible
+and impossible}), but its probability of error converges to $0$. 
+\begin{definition}[title = Theorem]
+    For every distribution $\boldsymbol{D}$, for every $0 < \epsilon < \frac{1}{2}$ and for every $0 < \delta < \frac{1}{2}$, if $m \geq \frac{4}{\epsilon}\text{ln}(\frac{4}{\delta})$,
+    then:
+    $$Pr_{D \sim \boldsymbol{D^m}} [error_{\boldsymbol{D}, T}(A_{BFP}(D)) < \epsilon] > 1 - \delta$$
+    This formula can be divided into:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item \textbf{Inner probability} ($error_{\boldsymbol{D}, T}(A_{BFP}(D)) < \epsilon$), the probability of an error defined by the output of the $A_ {BFP}$ algorithm in place of $T$, when points are drawn randomly from a distribution $\boldsymbol{D}$, is less then $\epsilon$.
+        \item \textbf{Outer probability} ($Pr_{D \sim \boldsymbol{D^m}} [error_{\boldsymbol{D}, T}(A_{BFP}(D)) < \epsilon] > 1 - \delta$), the probability that the previous error is smaller than $\epsilon$ is greater than $1 - \delta$.
+    \end{itemize} \vspace{3.5pt}
+    Some interisting observations are already coming out:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item As soon as we take $\epsilon$ and $\delta$ close to $0$, the number of training data grows exponentially, since these parameters occur as denominators while defining $m$.
+        \item There are two probabilities related to the fact that data are drawn twice: one time for the training data and another time for the testing data. In this case, the inner probability is about the \textbf{accuracy} over the testing data, instead the outer probability is about the \textbf{confidence} over the training data.
+    \end{itemize} \vspace{7pt}
+
+    We could suppose that for parameters $\epsilon$ and $\delta$ pretty close to $0$ and for $m$ enough big, we can get an error less than $\epsilon$ and therefore the general probability
+    will be very close to $1$, describing the convergence of the learning algorithm to the optimal solution.
+\end{definition}

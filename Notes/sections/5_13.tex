@@ -1,0 +1,14 @@
+Suppose that our target concept is a conjuction of literals $c$ on $n$ variables $x_1, \dots, x_n$. How could a learning algorithm proceed? Or better, is this 
+conjuction PAC learnable? \vspace{7pt}
+
+Data are in the form $(s,b)$ where $s \in \{0,1\}^n$ and $b \in \{0,1\}$. The latter is a label telling us whether $s \in c$ or $s \notin c$, so if the binary 
+string $s$ is correct or not. A learning algorithm could proceed by keeping a conjuction of literals $h$ as its state, where $h$ is a \textbf{hypothesis}, initially
+set to:
+$$x_1 \wedge \neg x_1 \wedge x_2 \wedge \neg x_2 \wedge \dots \wedge x_n \wedge \neg x_n$$
+Then, it will update this conjuction of literals according to the positive data received, while negative data are discarded. For instance, if $n = 3$, so we are
+just keeping a conjuction of three literals, the hypothesis $h$ could be $x_1 \wedge x_2 \wedge \neg x_2 \wedge \neg x_3$. If we receive a pair $(101, 1)$, the 
+hypothesis $h$ is updated as $x_1 \wedge \neg x_2$. \vspace{7pt}
+
+\begin{definition}[title = Theorem]
+    The representation class of boolean conjuctions of literals is efficiently PAC-learnable.
+\end{definition}

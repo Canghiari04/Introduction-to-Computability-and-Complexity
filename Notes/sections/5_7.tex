@@ -1,0 +1,39 @@
+Let's see how we can generalize what we have discussed so far. First of all, we are gonna to describe some useful definitions, as follows.
+\begin{definition}[title = Instance Space $X$]
+    We assume to work within an \textbf{instance space} $\boldsymbol{X}$:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item $X$ is the set of instances of objects the learner wants to classify.
+        \item Data from the instance spaces are generated through a distribution $\boldsymbol{D}$.
+        \item The instance space $X$ is the set where training data and testing data belong.
+    \end{itemize} \vspace{7pt}
+
+    Instance space can be seen as the set of \textbf{raw data}, that follows an unknown distribution $\boldsymbol{D}$ and does not include labels at all. \vspace{7pt}
+
+    Note: labelled data will be provided to our learning algorithm by an \textbf{oracle}, formally described as $EX(c, \boldsymbol{D})$.
+\end{definition} 
+\begin{definition}[title = Concept]
+    \textbf{Concepts} are subsets of $X$, thought as properties of data or objects. A concept is an arbitraly subset of the instance space $X$. \vspace{7pt}
+
+    In the previous example about rectangles, concepts are arbitrary subsets of the instance space $X = R^{2}_{[0,1]}$, since we take pairs of coordinates. For 
+    instance:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item Rectangle has parallel axes.
+        \item Red points are inside the rectangle.
+        \item Blue points are outside the rectangle.
+    \end{itemize}
+    However, these concepts are not provided as input to the learning algorithm: it should derive these concepts while learning patterns from training data.
+\end{definition}
+\begin{definition}[title = Concept class]
+    A \textbf{concept class} $C$ is a collection of concepts, namely a subset of $P(X)$. These are the concepts we would like to learn during the training 
+    phase. \vspace{7pt}
+
+    For instance, the concept class in the previous example that we learnt is the one of rectangles whose sides are parallel to the axes. \vspace{7pt}
+
+    Note: the learning algorithm did not know that the classifier would be a rectangle whose sides are parallel to axes, only during the training phase 
+    it recognized this behavior from data. \vspace{7pt}
+
+    The \textbf{target concept}, namely $c \in C$, is the concept, so the property, that the learner wants to build a classifier for (\textit{boolean function to 
+    recognize when a point is inside or outside the rectangle}).
+\end{definition}

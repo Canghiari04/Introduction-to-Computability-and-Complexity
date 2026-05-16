@@ -1,0 +1,47 @@
+In our definition of \textbf{efficient PAC learning}, the algorithm $A$ has no access to the target concept $c \in C$, what we really want to learn.
+It must work in \textbf{polynomial time independently} from $c$. This is unrealistic in many cases: it does not make any sense to require a polynomial time 
+with a target class $c$ that might be too huge. \vspace{7pt}
+
+In the standard definition of PAC learnability, we only care about the number of samples $m$ needed to reach a certain error $\epsilon$ with a certain probability 
+$1 - \delta$. However, for \textbf{efficient PAC learnability}, we shift the focus to the \textbf{running time} of the learning algorithm. \vspace{7pt}
+
+If we consider only $\epsilon$ and $\delta$, we ignore a crucial factor: the complexity of the target concept $c$ itself.
+\begin{example}
+    e.g. Learning a conjuction of three boolean variables is much easier than learning a conjuction of one million of variables. \vspace{7pt}
+
+    If we define the efficiency on $\epsilon$ and $\delta$, we might have an algorithm that is polynomial in those values but \textbf{exponential} in the 
+    number of variables or the size of the target concept.
+\end{example}
+Without knowing the size of what we are trying to learn, we cannot truly say if an algorithm is efficient.
+
+Therefore, we remedy as follows:
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \item We assume that elements of the instance space can be represented by binary strings.
+    \item We assume concepts in $C$ (\textit{concept class}) can be represented by way of binary strings, and each concept $e \in C$ requires $\text{size}(e)$ of bits.
+\end{itemize}
+Following this new idea, both the instance space and the concept class need new definitions:
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \item $C$ as $\bigcup_n C_n$
+    \item $X$ as $\bigcup_n X_n$
+    \item Any concept in $C_n$ takes in input elements of $X_n$
+\end{itemize}
+The pair $(X, C)$ is called a \textbf{representation class}, introduced to formalize the size of the target concept, $\text{size}(c)$.
+\begin{example}
+    e.g. $X_n$ could be $\{0,1\}^n$, the set of \textbf{boolean vectors} of fixed length $n$, and $C_n$ is the set of all subsets of $\{0,1\}^n$ \textit{represented
+    by CNFs} on precisely $n$ variables.
+\end{example} \vspace{7pt}
+In many cases, we have a single learning algorithm that works for every value of $n$. In that case, we can state that a learning task is feasible in 
+\textbf{polynomial time} if the algorithm's running time is a polynomial function of all the following parameters:
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \item $n \rightarrow$ size of the input space
+    \item $\text{size}(c) \rightarrow$ size of the target concept
+    \item $\frac{1}{\epsilon} \rightarrow$ inverse of the error threshold (\textit{accuracy})
+    \item $\frac{1}{\delta} \rightarrow$ inverse of the failure probability (\textit{confidence})
+\end{itemize}
+
+Note: briefly in our definition of \textbf{PAC learnability} we need to quantify also the target concept $c$, $\text{size}(c)$. This is possible treating every 
+concept that belongs to the concept class $C$ as a binary string: binary strings allow us to consider the learning task like a standard \textbf{Turing Machine}
+problem.

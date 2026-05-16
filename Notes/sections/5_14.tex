@@ -1,0 +1,13 @@
+We know that conjuctions of literals are \textbf{efficiently learnable}. However, they are highly incomplete as a way to represent boolean functions. As we already
+said in previous section, the satisfiability of conjuctions of literals is a polynomial task, but learning them has the same complexity? \vspace{7pt}
+
+Let us take a look at a slight generalization of conjuctions of literals as a representation class. A 3-term DNF formula over $n$ bits is a propositional 
+formula in the form $T_1 \vee T_2 \vee T_3$, where each $T_i$ is a conjuction of literals over $x_1, \dots, x_n$ boolean variables. In a sense, this class 
+or representation class is the \textbf{dual} of 3CNFs. \vspace{7pt}
+
+For sure, this new slight generalizaton is more expressive than just a conjuction of literals, but it doesn't exist an algorithm that can learn the previous expression 
+in polynomial time. \vspace{7pt}
+
+\begin{definition}[title = Theorem]
+    If $\text{NP} \neq \text{RP}$, then the representation class of 3-term DNF formulas is not efficiently PAC learnable.
+\end{definition}

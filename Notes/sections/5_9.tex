@@ -1,0 +1,17 @@
+We can say that a machine learning task is \textbf{feasible} when the following definition is satisfied.
+\begin{definition}
+    Let $C$ be a concept class over the instance space $X$. We say that $C$ is \textbf{PAC learnable} if and only if exists an algorithm $A$ such that
+    for every $c \in C$, for every distribution $\boldsymbol{D}$, for every $0 < \epsilon < \frac{1}{2}$ and for every $0 < \delta < \frac{1}{2}$, is such that:
+    $$\text{Pr}[error_{\boldsymbol{D},c}(A(EX(c, \boldsymbol{D}), \epsilon, \delta)) < \epsilon] > 1 - \delta$$
+    As before, we can divide the previous formula into:
+    \begin{enumerate}
+        \item \textbf{Inner probability} $(error_{\boldsymbol{D},c}(A(EX(c, \boldsymbol{D}), \epsilon, \delta)))$, the probability of an error over the hypothesis $h$ is less than $\epsilon$. Therefore, $\epsilon$ is like an \textbf{upper bound} of the entire error probability.
+        \item \textbf{Outer probability} $(\text{Pr}[error_{\boldsymbol{D},c}(A(EX(c, \boldsymbol{D}), \epsilon, \delta)) < \epsilon] > 1 - \delta)$, the probability that the previous error over the hypothesis $h$ is smaller than $\epsilon$ is greater than $1 - \delta$.
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    If the time complexity of $A$ is bounded by a polynomial $\frac{1}{\epsilon}$ and $\frac{1}{\delta}$, we say that $C$ is \textbf{efficiently PAC learnable}.
+\end{definition}
+\begin{definition}[title = Corollary]
+    The concept-class of axis-aligned rectangles over $R^{2}_{[0,1]}$ is efficiently PAC-learnable.
+\end{definition}
