@@ -1,0 +1,9 @@
+A learning algorithm $A$ is \textbf{consistent} if the following definition is satisfied.
+\begin{definition}
+    For every training set $D$, it outputs a hypothesis $h$ such that $h(x) = c(x)$ for all pairs $(x, c(x)) \in D$.
+\end{definition}
+In other words, by the previous definition we are just stating that $A$ produces a hypothesis $h$ with \textbf{zero training error}. We don't really like 
+such property since it seems to describe a definition about \textbf{overfitting}: our learning algorithm $A$ is so good that it provides a hypothesis $h$ that 
+is equal to the target concept. \vspace{7pt}
+
+However, there may be many consistent hypotheses: which one should we choose?

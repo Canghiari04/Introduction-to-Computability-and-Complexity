@@ -1,0 +1,12 @@
+What happens if the VC-dimension is infinite? Whether the VC-dimension is infinite then the following theorem holds. \vspace{7pt}
+\begin{definition}[title = Theorem]
+    Let $H$ be a hypothesis class with infinite VC-dimension. Then $H$ is \textbf{not} PAC-learnable. In particular, for every algorithm $A$ there 
+    exist distributions $\boldsymbol{D}$ and target concept $c \in H$ such that $A$ fails to achieve arbitrarily small error with high confidence.
+\end{definition}
+When a hypothesis class $H$ has an infinite VC-dimension, it means that there is no upper limit to the number of points it can shatter. \vspace{7pt}
+
+While that sounds like a good thing for our machine learning tasks, it is actually a big vulnerability. Instead of generalizing, the algorithm simply 
+\textbf{memorizes} the training data, fitting the \textbf{noise} rather than learning a \textbf{meaningful rule}. \vspace{7pt}
+
+An infinite VC-dimension means that the hypothesis class can fit arbitrary amount of noise, leading to overfitting, and also the generalization 
+seen by the Occam's Razor Principle becomes impossible to achieve.

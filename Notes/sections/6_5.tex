@@ -1,0 +1,17 @@
+\begin{definition}[title = {Theorem (Occam's Razor, Cardinality Version)}]
+    Let $C$ be a concept class and $H$ a hypothesis class. Let $L$ be a consistent learner for $C$ using $H$. Then for all $0 < \epsilon < \frac{1}{2}$
+    and all $0 < \delta < \frac{1}{2}$, if $L$ is given a sample of size $m$ drawn from $EX(c, \boldsymbol{D})$, such that
+    $$m \geq \frac{1}{\epsilon}(log|H_n|+log \frac{1}{\delta}),$$
+    then $L$ is guaranteed to output a hypothesis $h \in H_n$ that with probability at least $1 - \delta$, errs with probability at most $\epsilon$. If
+    furthemore, $L$ is an efficient consistent learner, log$|H_n|$ is polynomial in $n$ and $\text{size}(c)$, and $H$ is polynomially evaluatable, then $C$
+    is efficiently PAC-learnable using $H$.
+\end{definition}
+This new theorem (\textit{Occam's Razor, Cardinality Version}) has all what we have seen so far about \textbf{PAC learnability} with some new few things, which are:
+\begin{enumerate}
+    \item First of all, we state that the consistent learner $L$ learns properties from concept class $C$ returning elements of the hypothesis class $H$. In this case, $C$ and $H$ are two different things: $L$ learns $C$ by $H$.
+    \item In our definition of the lower bound ($m \geq \frac{1}{\epsilon}(log|H_n|+log \frac{1}{\delta})$) we have to take in account the cardinality of the size of the hypothesis class $H_n$: bigger hypothesis space would require a bigger lower bound and at the same time more training data.
+    \item The theorem tells us, up to the second part, that it's fine to came up with a consistent learner $L$, but it would expect a lot of training data if it comes from a huge hypothesis class $H$.
+    \item Additionally, if the consistent learner $L$ runs in polynomial time, the cardinality or the size of the hypothesis class log$|H_n|$ is polynomial in size of ($n$, $c$), and also the hypothesis space $H$ is polynomially evaluatable (\textit{meaning that feeding it with data $x$ we will get a result in a reasonable amount of time}) then the concept class $C$ would be efficiently PAC-learnable using the hypothesis space $H$.
+\end{enumerate}
+Summing up, what the theorem is trying to tell us is that exploit \textbf{consistent learners} can be a good idea but everything depends from the cardinality of the hypothesis class $H_n$: if its size 
+is big then the amount of training data we need to reach a certain level of accuracy and confidence could be even bigger.

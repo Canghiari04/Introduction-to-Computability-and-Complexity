@@ -1,0 +1,18 @@
+\begin{definition}
+    Let $H$ be a hypothesis class over an instance space $X$. A set $S = \{x_1, \dots, x_m\} \subseteq X$ is said to be \textbf{shattered} by the 
+    hypothesis class $H$ if:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item For every labeling $l:S \rightarrow \{0,1\}$.
+        \item There exists $h \in H$ such that $h(x) = l(x)$ for all $x \in S$.
+    \end{itemize} 
+    Basically, if the hypothesis class is sufficiently expressive to catch all the subsets of $S$ we can state that the latter is shattered by $H$. \vspace{7pt}
+
+    The \textbf{VC-dimension} of $H$ is:
+    $$VC(H) = \text{max}\{|S|: S \ \text{is shattered by} \ H\}$$
+\end{definition}
+In order to claim that our hypothesis class $H$ has a finite VC-dimension we have to:
+\begin{enumerate}
+    \item First of all, we show for that number there exists an $S$ which is shattered by $H$.
+    \item We keep going increasing the finite number, until we are not able anymore to shatter the improved set $S$ by $H$.
+\end{enumerate}

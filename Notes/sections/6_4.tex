@@ -1,0 +1,11 @@
+Formalizing what we have seen so far, we can say.
+\begin{definition}
+    Let $H$ be a finite \textbf{hypothesis class} or \textbf{space} and we consider a consistent hypothesis $h \in H$. If $h$ has high true error, namely the 
+    probability it matches all $m$ samples is small, and considering an union bound over $H$, where large hypothesis classes increase the risk of 
+    \textbf{overfitting}, we get:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item Smaller $H \rightarrow$ guarantees better generalization.
+        \item Sample complexity depends on $log|H|$.
+    \end{itemize}
+\end{definition}

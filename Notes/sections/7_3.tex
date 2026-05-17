@@ -1,0 +1,7 @@
+VC-dimension implies learnability, or better PAC learnability.
+\begin{definition}
+    Let $H$ be a hypothesis class with a finite VC-dimension d. Then $H$ is PAC-learnable. More precisely, there exists a constant $c$ such that for all 
+    $0 < \epsilon$, $\delta < \frac{1}{2}$, if
+    $$m \geq c \cdot \frac{1}{\epsilon}(d \ \text{log} \frac{1}{\epsilon} + \ \text{log}\frac{1}{\delta}),$$
+    then with probability at least $1 - \delta$, any consistent hypothesis has $\text{error} < \epsilon$.
+\end{definition}

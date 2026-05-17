@@ -1,0 +1,114 @@
+\begin{example}[title = {Threshold Functions on $\mathbb{R}$}]
+    Let $H$ be the class of threshold functions on $R$:
+    $$h_a(x) = \begin{cases} 1 & \text{if} \ x \geq a \\ 0 & \text{otherwise} \end{cases}$$
+    Let's see what happens for progressively bigger sets $S_1, S_2, \dots, S_n$ whether they can be shattered by $H$: \vspace{7pt}
+
+    $1^{st} S_1 = \{x\}$. \\
+    We could use two threshold functions to shatter such set:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item $h_a$ located before $x$.
+        \item $h_b$ located after $x$.
+    \end{itemize} \vspace{3.5pt}
+
+    $2^{nd} S_2 = \{x, y\}$. \\
+    We cannot shatter such set because $\{x\}$ is a subset of $S_2$ and no threshold function $h$ can shatter $h(x) = 1$ and $h(y) = 0$. \vspace{3.5pt}
+
+    More precisely, in order to obtain a VC-dimension equal to $2$, we would need the following combinations $\{00, 01, 10, 11\}$: however, the third one
+    is not possible because we cannot place $x$ before the threshold and $y$ after it, since we have $x < y$. \vspace{7pt}
+
+    \textbf{Conclusion}. \\
+    Therefore, the VC-dimension of the class of threshold functions $H$ is $1$, VC$(H) = 1$.
+\end{example}
+\begin{example}[title = {Intervals on $\mathbb{R}$}]
+    Let $H$ be the class of intervals on $R$:
+    $$h_{a, b}(x) = 1 \Leftrightarrow x \in [a, b]$$
+    So, we return the label $1$ when the point is inside the interval $[a, b]$ and $0$ otherwise. \vspace{7pt}
+
+    Let's see what happens for progressively bigger sets $S_1, S_2, \dots, S_n$ whether they can be shattered by $H$: \vspace{7pt}
+
+    $1^{st} S_1 = \{x\}$. \\
+    We can easily shatter such set by placing the interval $[a, b]$ around $x$. \vspace{3.5pt}
+
+    $2^{st} S_2 = \{x, y\}$. \\
+    This set is even simpler than the previous one, since we can place the interval $[a, b]$ in many different ways to shatter $S_2$:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item Not around $x$ and $y$.
+        \item Around $x$ but not $y$.
+        \item Around $y$ but not $x$.
+        \item Around both $x$ and $y$.
+    \end{itemize} \vspace{3.5pt}
+
+    $3^{rd} S_3 = \{x, y, z\}$. \\
+    $S_3$, unlike $S_1$ and $S_2$, cannot be shattered by any interval $[a, b]$. Let's see why:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item Place $[a, b]$ around $x$ but not $y$ and $z$.
+        \item Place $[a, b]$ around $y$ but not $x$ and $z$.
+        \item Place $[a, b]$ around $z$ but not $x$ and $y$.
+        \item Place $[a, b]$ around none of the three points.
+        \item Place $[a, b]$ around all three points $x, y$ and $z$.
+    \end{itemize}
+    But, how can we place the same interval $[a, b]$ around $x$ and $z$ but not $y$? \\ 
+    Simply, we cannot since it does not exist any interval $[a, b]$ that contains $x$ and $z$ but not $y$, considering that $x < y < z$. \vspace{7pt}
+
+    \textbf{Conclusion}. \\
+    Therefore, the VC-dimension of the class of intervals on $R$ is $2$, VC$(H) = 2$.
+\end{example}
+\begin{example}[title = {Axis-Aligned Rectangles in $\mathbb{R}^2$}]
+    Let $H$ be the class of axis-aligned rectangles in $R^2$. \vspace{7pt}
+
+    Let's see what happens for progressively bigger sets $S_1, S_2, \dots, S_n$ whether they can be shattered by $H$: \vspace{7pt}
+
+    $1^{st} S_1 = \{(x, y)\}$. \\
+    We can easily shatter such set by placing the rectangle around the point $(x, y)$. \vspace{3.5pt}
+
+    $2^{nd} S_2 = \{(x_1, y_1), (x_2, y_2)\}$. \\
+    This set is a little bit more challenging than the previous one. Like the threshold function, we can place a rectangle in different ways:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item Around both points.
+        \item Around none of the two points.
+        \item Around $(x_1, y_1)$ but not $(x_2, y_2)$.
+        \item Around $(x_2, y_2)$ but not $(x_1, y_1)$.
+    \end{itemize} \vspace{3.5pt}
+
+    $3^{rd} S_3 = \{(x_1, y_1), (x_2, y_2), (x_3, y_3)\}$. \\
+    We can shatter such set in the same way we did before, by placing the rectangle around the points in different ways:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item Around all three points.
+        \item Around none of the three points.
+        \item Around $(x_1, y_1)$ but not $(x_2, y_2)$ and $(x_3, y_3)$.
+        \item Around $(x_2, y_2)$ but not $(x_1, y_1)$ and $(x_3, y_3)$.
+        \item Around $(x_3, y_3)$ but not $(x_1, y_1)$ and $(x_2, y_2)$.
+        \item Around $(x_1, y_1)$ and $(x_2, y_2)$ but not $(x_3, y_3)$.
+        \item Around $(x_1, y_1)$ and $(x_3, y_3)$ but not $(x_2, y_2)$.
+        \item Around $(x_2, y_2)$ and $(x_3, y_3)$ but not $(x_1, y_1)$.
+    \end{itemize} \vspace{3.5pt}
+
+    $4^{th} S_4 = \{(x_1, y_1), (x_2, y_2), (x_3, y_3), (x_4, y_4)\}$. \\
+    Taking the four points in a complete irregular position, we can shatter $S_4$ in the following way:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item Around all four points.
+        \item Around none of the four points.
+        \item Around $(x_1, y_1)$ but not $(x_2, y_2)$, $(x_3, y_3)$ and $(x_4, y_4)$.
+        \item Around $(x_2, y_2)$ but not $(x_1, y_1)$, $(x_3, y_3)$ and $(x_4, y_4)$.
+        \item Around $(x_3, y_3)$ but not $(x_1, y_1)$, $(x_2, y_2)$ and $(x_4, y_4)$.
+        \item Around $(x_4, y_4)$ but not $(x_1, y_1)$, $(x_2, y_2)$ and $(x_3, y_3)$.
+        \item Around $(x_1, y_1)$ and $(x_2, y_2)$ but not $(x_3, y_3)$ and $(x_4, y_4)$.
+        \item Around $(x_1, y_1)$ and $(x_3, y_3)$ but not $(x_2, y_2)$ and $(x_4, y_4)$.
+        \item Around $(x_1, y_1)$ and $(x_4, y_4)$ but not $(x_2, y_2)$ and $(x_3, y_3)$.
+        \item Around $(x_2, y_2)$ and $(x_3, y_3)$ but not $(x_1, y_1)$ and $(x_4, y_4)$.
+        \item Around $(x_2, y_2)$ and $(x_4, y_4)$ but not $(x_1, y_1)$ and $(x_3, y_3)$.
+        \item Around $(x_3, y_3)$ and $(x_4, y_4)$ but not $(x_1, y_1)$ and $(x_2, y_2)$.
+    \end{itemize} \vspace{3.5pt}
+
+    $5^{th} S_5 = \{(x_1, y_1), (x_2, y_2), (x_3, y_3), (x_4, y_4), (x_5, y_5)\}$. \\
+    There is no subset of $R^2$ having a cardinality of $5$ that can be shattered by axis-aligned rectangles. \vspace{7pt}
+
+    \textbf{Conclusion}. \\
+    Therefore, the VC-dimension of the class of axis-aligned rectangles in $R^2$ is $4$, VC$(H) = 4$.
+\end{example}
