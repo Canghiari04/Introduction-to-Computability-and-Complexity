@@ -1,1 +1,101 @@
-\dots
+\begin{example}[title = Minimum independent set]
+    e.g. We consider this task as a set of problems. \vspace{7pt}
+
+    \textbf{Problem}. \\
+    It asks whether a pair $(G, k)$ of an undirected graph and a natural number $k \in N$ is such that $G = (V, E)$ admits an independent set $W \subseteq V$ of 
+    cardinality at least $k$. \vspace{7pt}
+
+    \textbf{Note}. \\ 
+    We are not computing the paramater $k$ but, instead, we provide it as an input parameter. We use it in order to check if it exists an independent set 
+    of nodes of cardinality at least equal to $k$. \vspace{7pt}
+
+    \textbf{Certificate}. \\ 
+    In this problem or language, the certificate coincides with the independent set $W$. Check its cardinality and independence is quite easy, but what is really 
+    tricky of this task is to find out the independent set $W$. \vspace{7pt}
+
+    Formally, the certificate is described as follows:
+    $$L = \{(G,k)| \exists W \ . W \ \text{is independent for} \ (G,k) \wedge |W| \geq k \wedge W \subseteq V\}$$
+\end{example}
+\begin{example}[title = Subset sum]
+    e.g. Subset sum problem. \vspace{7pt}
+
+    \textbf{Problem}. \\ 
+    It asks whether, given a sequence of natural numbers $n_1, \dots, n_m$ and a number $k$, there exists a subset $I$ of \{1, \dots, m\} such that:
+    $$ \sum_{i \in I} n_i = k $$ 
+
+    \textbf{Certificate}. \\ 
+    It's pretty simple to identify the certificate of this language: the certificate here is just $I$, checking whether the summation is equal to a natural number
+    is very easy. \vspace{7pt}
+
+    In this problem, checking if the summation of natural numbers is equal to $k$ is quite easy, but what is really tricky is to find out the subset of 
+    natural numbers $I$.
+\end{example}
+\begin{example}[title = Composite Numbers]
+    e.g. Composite numbers problem. \vspace{7pt}
+
+    \textbf{Problem}. \\
+    Given a number $n \in N$, determine whether $n$ is composite, not prime. \vspace{7pt}
+
+    \textbf{Note}. \\
+    In order to determine whether a number is composite or not, we don't need to take all its range of numbers, we can just use the $\sqrt{n}$. Anyway, 
+    even though by this consideration we have reduced the range of numbers, we have to check any of them. \vspace{7pt}
+    
+    For sure, checking every single number up to $\sqrt{n}$ cannot be solved in polynomial time: the total amount of steps is exponential in the size of the input, which is $\sqrt{n}$. \vspace{7pt}
+
+    \textbf{Certificate}. \\
+    It is the factorization of $n$, a couple of natural numbers $(m,l)$ such that $n = m \cdot l$. \vspace{7pt}
+
+    More in details, the verifier and the certificate are respectively:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item Verifier, product between the two natural numbers, $n = m \cdot l$.
+        \item Certificate, decomposition of $n$ into a pair of natural numbers.
+    \end{itemize}
+\end{example}
+\begin{example}[title = Decisional Linear Programming]
+    e.g. Decisional linear programming problem. \vspace{7pt}
+
+    \textbf{Problem}. \\
+    Given a sequence of $m$ linear inequalities with rational coefficients over $n$ variables, decide whether there is a rational assignment to the variables 
+    $x_1, \dots, x_n$ which makes the inequalities true. \vspace{7pt}
+
+    Inequalities are of the form:
+    $$\sum_{i = 1}^{n} a_i x_i \leq b$$
+    where:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item $a_i \rightarrow$ rational coefficient
+        \item $b_i \rightarrow$ rational number
+    \end{itemize} \vspace{7pt}
+
+    \textbf{Note}. \\
+    As usual, in one hand checking the satisfiability of these inequalities is trivial. In the other hand, finding the $n$ different rational numbers for the 
+    $x_1, \dots, x_n$ variables is difficult. \vspace{7pt}
+
+    \textbf{Certificate}. \\
+    The assignments, which can be easily checked for correctness. \vspace{7pt}
+
+    Additionally, the assignments must be small enough, since the inequalities are linear. In the formal definition, this means that the binary encodings of the
+    assignments taken in input by the Turing Machine cannot be too big.
+\end{example}
+\begin{example}[title = Decisional 0/1 Linear Programming]
+    e.g. Decisional 0/1 linear programming problem. \vspace{7pt}
+
+    \textbf{Problem}. \\
+    Given a sequence of $m$ linear inequalities, decide whether there is an assignment of zeros and ones to the variables $x_1, \dots, x_n$ making the 
+    inequalities true. \vspace{7pt}
+
+    \textbf{Note}. \\
+    We have just reduced the search space of the assignments, so the certificate still be the same as in the example above. However, making this problem 
+    more "easy", we cannot anymore exploit some geometric properties of the inequalities to find out the best matches. \vspace{7pt}
+
+    \textbf{Certificate}. \\
+    Again, the assignments. 
+\end{example}
+Some of the discussed problems are also in \textbf{P}:
+\begin{enumerate}
+    \item Composite numbers.
+    \item Decisional linear programming.
+\end{enumerate}
+All the other problems, as minimum independent set, subset sum and decisional 0/1 linear programming, are currently \textbf{not known} to be in P: this does 
+not mean that they cannot be solved, but up to now does not exist any algorithm that can solve them in polynomial time. \vspace{7pt}

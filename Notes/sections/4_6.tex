@@ -1,0 +1,19 @@
+We are gonna to describe something more formal about \textbf{nondeterminstic Turing Machines}, in particular:
+\begin{definition}
+    We say that a NDTM $M$ runs in time $T: N \rightarrow N$ if and only if for every $x \in \{0,1\}^*$ and for every possible nondeterministic evolution, 
+    $M$ reaches either the \textbf{halting state} $q_{accept}$ within $c \cdot T(|x|)$ steps, where $c > 0$.
+\end{definition}
+\begin{definition}
+    For every function $T: N \rightarrow N$ and $L \subseteq \{0,1\}^*$, we say that $L \in \text{NDTIME}(T(n))$ if and only if there is a NDTM $M$ working 
+    in time $T$ and such that $M(x) = 1$ if and only if $x \in L$.
+\end{definition}
+\begin{definition}[title = Theorem]
+    $$\textbf{NP} = \bigcup_{c \in N} \textbf{NDTIME}(n^c)$$
+\end{definition}
+Therefore, we can define \textbf{NP} by nondeterministic Turing Machines: the definition based on certificates and verifiers is equivalent to the one based on NDTM. 
+In particular, the two definitions are equivalent for the following reasons:
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \item The existential quantifiers express the same thing: one used for the $q_{accept}$ state and the other for the certificate $y$.
+    \item Looking for the right evolution of the nondeterministic Turing Machine is the same as looking for the existence of a certificate $y$ polynomially bounded.
+\end{itemize}

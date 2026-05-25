@@ -1,0 +1,16 @@
+Sometimes the complexity class \textbf{NP} is defined by \textbf{nondeterministic Turing Machines}, rather than by certificates and verifiers. \vspace{7pt}
+
+A nondeterministic Turing Machine is a type of machine that can evolve in multiple ways, even though the configuration $C_i$ still be the same. This new 
+kind of machine does not include anymore algorithms, since they are not deterministic by structure. \vspace{7pt}
+
+The only differences between a \textbf{NDTM} and an ordinary \textbf{Turing Machine} are:
+\begin{enumerate}
+    \item In a nondeterministic Turing Machine we don't have anymore a single transition function $\delta_i$, but two transition functions $\delta_0$ and $\delta_1$. At each step, the machine picks one of the transitions in a complete nondeterministic way and proceeds according to it.
+    \item A special state named $q_{accept}$.
+\end{enumerate}
+As for ordinary Turing Machines, we say that a nondeterministic Turing Machine $M$:
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \item \textbf{accepts} a binary string $x \in \{0,1\}^*$ if and only if there exists one among the possible evolutions of the machine $M$ such that giving it $x$ it reaches the state $q_{accept}$;
+    \item \textbf{rejects} a binary string $x \in \{0,1\}^*$ if and only if none of the possible evolutions of the machine $M$ leads to $q_{accept}$ when given in input $x$.
+\end{itemize}
