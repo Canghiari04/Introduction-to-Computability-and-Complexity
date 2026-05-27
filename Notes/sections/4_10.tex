@@ -1,0 +1,18 @@
+One obvious way of building an \textbf{NP}-complete problem is to define it as the problem of \textbf{simulating} any Turing Machine. \vspace{7pt}
+
+Let \textit{TMSAT}, acronym of Turing Machine Satisfiability, be the following language:
+$$\textit{TMSAT} = \{(\alpha, x, 1^n, 1^t) | \exists u \in {0,1}^n \ .M_{\alpha} \ \text{outputs 1 on input} \ (x,u) \ \text{within} \ t \ \text{steps}\}$$
+where:
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \item $\alpha \rightarrow$ index of the Turing Machine
+    \item $x \rightarrow$ input string
+    \item $1^n \rightarrow$ size of the certificate
+    \item $1^t \rightarrow$ time boundary 
+\end{itemize}
+We are just asking if the machine $\alpha$ returns $1$ on input $(x,u)$ within a total amount of $t$ steps. The amount of steps $t$ is not given in input since 
+the Turing Machine would build solutions using also $t$ as a piece of knowledge: doing so we avoid that the complexity grows exponentially in the size 
+of $t$.
+\begin{definition}[title = Theorem]
+    \textit{TMSAT} is \textbf{NP}-complete.
+\end{definition} 

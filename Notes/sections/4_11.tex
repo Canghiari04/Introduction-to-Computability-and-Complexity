@@ -1,0 +1,19 @@
+\textbf{Propositional formulas} are the first problems to be proved in \textbf{NP}. Formulas in propositional logic are composed by:
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \item Propositional variables.
+    \item Basic connectives $\wedge, \vee$ and $\neg$.
+\end{itemize}
+A simple example could be:
+$$X \vee \neg X, \ X \wedge (Y \vee \neg Z)$$
+Given a formula $F$ and an assignment $\rho$ of elements from $\{0,1\}$ to the propositional variables in $F$, we can define the \textbf{truth value} for $F$,
+indicated as $[F]_{\rho}$, by induction on $F$:
+$$
+    \begin{aligned}
+        \relax [X]_{\rho} & = \rho(X) \\ 
+        [F \wedge G]_{\rho} & = [F]_{\rho} \cdot [G]_{\rho} \\
+        [F \vee G]_{\rho} & = [F]_{\rho} + [G]_{\rho} \\     
+        [\neg F]_{\rho} & = 1 - [F]_{\rho}
+    \end{aligned}
+$$
+A formula $F$ is \textbf{satisfiable} if and only if there is one assignment $\rho$ such that $[F]_{\rho} = 1$.

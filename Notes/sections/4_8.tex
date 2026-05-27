@@ -2,7 +2,7 @@ The comparison between problems' difficulties is done by \textbf{reductions}, so
 
 We would like to define a reduction between two decision problems (\textit{namely languages}) through a function $f$. Let's consider the following image.
 \begin{center}
-    % \includegraphics[width=0.5\textwidth]{img/img1_.png}
+    \includegraphics[width=0.5\textwidth]{img/img5.png}
 \end{center}
 The function $f$ takes in input a point from the left-most set and maps it to a point in the right-most set: considering a starting point inside the language 
 $L$, the function $f$ will land it inside the language $H$. Automatically we can say that $L$ belongs to the same complexity of $H$.
@@ -10,5 +10,7 @@ $L$, the function $f$ will land it inside the language $H$. Automatically we can
     The language $L$ is said to be \textbf{polynomial-time reducible} to another language $H$ if and only if there is a polytime computable function $f: \{0,1\}^*
     \rightarrow \{0,1\}^*$ such that $x \in L$ if and only if $f(x) \in H$.
 \end{definition}
-If we have the capabilities to define such relationship $f$ between the decision problems considered, we write $L \leq_p H$, meaning that: $L$ cannot be 
-harder than $H$.
+If we are able to put in relation such decision problems by a polytime reduction, then we can say that $L$'s difficulty is at most equal to $H$'s difficulty:
+in order to express such relationship between decision problems, we use this unique notation described by a pedix $p$, meaning a polytime reduction. \vspace{7pt}
+
+Note: in the example above, the language $L$ is difficult as $H$ and it cannot be more difficult.

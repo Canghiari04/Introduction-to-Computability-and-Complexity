@@ -1,0 +1,15 @@
+Searching for the satisfiability of this kind of decision problems based on propositional formulas, it's like searching for the decidability of them. \vspace{7pt}
+
+A propositional formula $F$ is said to be in \textbf{conjuctive normal form} when it is a conjuction of disjuctions of literals: inner disjuctions and outside 
+conjuctions. For instance, the following formulas are both CNFs:
+$$X \vee \neg X, \ X \wedge (Y \vee \neg Z)$$
+The disjuctions in a CNF are said to be \textbf{clauses}, and $k \textbf{CNF}$ is a CNF whose clauses contains at most $k$ literals, with $k \in N$.
+$$X \vee \neg X, X \wedge (Y \vee \neg Z)$$
+Both of the propositional formulas above are 2CNFs.
+\begin{definition}[title = Theorem]
+    The following two languages are \textbf{NP}-complete: \vspace{3.5pt}
+    \begin{center}
+        \textit{SAT} = $\{\lfloor F \rfloor | F \ \text{is a satisfiable CNF}\}$ \\ 
+        \textit{3SAT} = $\{\lfloor F \rfloor | F \ \text{is a satisfiable 3CNF}\}$
+    \end{center}
+\end{definition}

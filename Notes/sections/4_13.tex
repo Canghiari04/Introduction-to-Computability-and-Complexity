@@ -1,0 +1,17 @@
+Suppose we are studying the complexity of a language $L$, and we are convinced that the given problem is \textbf{hard}. How should we prove our claim about the 
+complexity or difficulty of the decision problem $L$? \vspace{7pt}
+
+Prove that the language $L$ belongs to any possible complexity class seen so far, like P, NP and EXP, does not mean so much. However, by proving that $L$ is
+\textbf{NP}-complete is the best way to prove that the problem is not so hard, but also not so easy. \vspace{7pt}
+
+Proving that a given problem $L$ is NP-complete it does not mean only that it's in NP but also is at least as difficult as any other problem in NP. \vspace{7pt}
+
+If we would like to prove that $L$ is \textbf{NP}-complete, we have to prove two statements: 
+\begin{enumerate}
+    \item $L$ is in \textbf{NP}. \\
+    We show that there are $p$ polynomial and $M$ polytime Turing Machine such that $L$ can be written as:
+    $$L = \{x \in \{0,1\}^* | \exists y \in \{0,1\}^{p(|x|)} \ . M(x,y) = 1\}$$
+    \item $H \leq_{p} L$ for any other language $H$ in \textbf{NP}. \\
+    We take a specific language or decision problem already known to be in \textbf{NP} and we try to set up a reduction. In this step, we can exploit 
+    the transitive property of the reduction, building chains of reductions from known NP-complete problems to $L$.
+\end{enumerate}
